@@ -2,8 +2,6 @@ from datetime import timedelta
 
 from rest_framework import serializers
 
-from habit.models import Habit
-
 
 class RelatedOrReward:
     def __call__(self, value):
