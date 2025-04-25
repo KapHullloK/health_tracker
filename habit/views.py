@@ -40,3 +40,11 @@ class HabitDestroy(DestroyAPIView):
     serializer_class = HabitSerializer
     queryset = Habit.objects.all()
     permission_classes = [IsOwner]
+
+
+class HabitOwnList(ListAPIView):
+    serializer_class = HabitSerializer
+    pagination_class = HabitPaginator
+
+    def get_queryset(self):
+        return Habit.objects.filter(user=self.request.user)
